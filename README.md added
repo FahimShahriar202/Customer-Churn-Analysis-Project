@@ -1,92 +1,61 @@
-# Customer Churn Analysis
+# Customer Churn Analysis Using Python
 
-**Author:** Fahim Shahriar Ahmed
+## Project Overview
 
-An exploratory data analysis (EDA) of telecom customer data to understand **who churns and why**, ending with practical business recommendations to reduce churn.
+This project focuses on **Exploratory Data Analysis (EDA)** of customer churn data to understand customer behavior and identify patterns associated with customers leaving a service.
 
----
+Using Python's data analysis and visualization libraries, I explored customer demographics, subscription details, contract types, monthly charges, total charges, and tenure to identify potential factors associated with churn.
 
-## Overview
+## Tools and Libraries Used
 
-Customer churn (customers cancelling their subscription) directly hurts revenue. This project cleans a telecom customer dataset, explores the patterns behind churn using statistics and visualizations, and turns the findings into actionable suggestions.
+- **Python**: Data analysis and exploration.
+- **Pandas**: Data loading, manipulation, missing value handling, and data inspection.
+- **NumPy**: Numerical operations.
+- **Matplotlib**: Data visualization.
+- **Seaborn**: Statistical visualization and analysis of relationships between customer attributes and churn.
 
-## Dataset
+## Key Steps Performed
 
-| Item | Detail |
-|---|---|
-| Rows | 7,043 customers (7,032 after cleaning) |
-| Columns | 21 |
-| Target | `Churn` (Yes / No) |
-| Customer info | `gender`, `SeniorCitizen`, `Partner`, `Dependents` |
-| Services | `PhoneService`, `MultipleLines`, `InternetService`, `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`, `StreamingTV`, `StreamingMovies` |
-| Account info | `tenure`, `Contract`, `PaperlessBilling`, `PaymentMethod`, `MonthlyCharges`, `TotalCharges` |
-
-## Tools & Libraries
-
-- **Python**
-- **pandas**: data loading, cleaning, type conversion
-- **NumPy**: numerical operations
-- **Matplotlib**: pie chart, histograms, scatter plot
-- **Seaborn**: box plots, count plots, histograms with KDE
-- **Jupyter Notebook / Google Colab**
-
-## What I Did
-
-1. **Data cleaning**
-   - Found that `TotalCharges` was stored as text (`object`) and converted it to a numeric type.
-   - Found 11 missing `TotalCharges` values after conversion and dropped those rows (a tiny share of the data).
-   - Converted `SeniorCitizen` to a categorical column.
-2. **Data exploration**
-   - Checked summary statistics with `describe()`.
-   - Plotted the churn distribution (pie chart).
-   - Used box plots for numeric features (`tenure`, `MonthlyCharges`, `TotalCharges`).
-   - Used count plots for all categorical features.
-3. **Visualization**
-   - Box plots of charges by churn, split by contract type, gender, and payment method.
-   - Histograms of `MonthlyCharges` and `tenure` by churn.
-   - Scatter plot of `tenure` vs `MonthlyCharges`, colored by churn.
+- **Data Inspection:** Examined dataset structure, columns, data types, and descriptive statistics.
+- **Data Cleaning:** Converted `TotalCharges` to a numeric data type and handled missing values.
+- **Churn Distribution Analysis:** Examined the proportion of customers who churned and those who stayed.
+- **Univariate Analysis:** Explored numerical and categorical features using box plots, count plots, and histograms.
+- **Comparative Analysis:** Investigated relationships between churn and monthly charges, total charges, tenure, contract type, gender, and payment method.
+- **Business Recommendations:** Derived potential customer retention strategies from the observed patterns.
 
 ## Key Findings
 
-- **Churn rate is about 26.6%**: 1,869 of 7,032 customers churned, so roughly 1 in 4 customers leaves.
-- **Low tenure means higher churn.** Newer customers are the most likely to leave, while customers who have stayed longer tend to stay.
-- **High monthly charges raise the risk.** Customers paying more per month churn more often, especially when they are also new.
-- **Gender has no visible effect** on churn.
-- **Add-on services are underused.** Few customers use extras like Online Security and Online Backup.
+- **Customer Churn:** Approximately **26.6% of customers churned**, indicating a substantial customer retention challenge.
+- **Customer Tenure:** Customers with shorter tenure showed a higher tendency to churn.
+- **Monthly Charges:** Customers with lower tenure and higher monthly charges appeared more prone to churn.
+- **Contract Type:** Contract type was explored alongside monthly charges and total charges to investigate differences in churn patterns.
+- **Gender:** The visual analysis suggested that gender did not substantially change the observed monthly charge patterns associated with churn.
+- **Additional Services:** Online Security and Online Backup appeared to have lower usage among customers, suggesting an opportunity to explore service adoption.
 
 ## Business Recommendations
 
-- Give **new, high-paying customers** more value for their money so they have a reason to stay through the early months.
-- Offer a **free 6-month trial** of add-ons such as Online Security and Online Backup, so customers see them as good value.
-- Encourage customers to stay longer, since long-tenure customers are the least likely to churn.
+Based on the exploratory findings, the following strategies could help improve customer retention:
 
-## Repository Structure
+1. **Improve Value for Money:** Review pricing and service value for customers with high monthly charges and short tenure.
+2. **Focus on New Customers:** Develop retention strategies for customers during their early months of subscription.
+3. **Promote Additional Services:** Consider introductory offers or free trials for Online Security and Online Backup to encourage adoption.
+4. **Monitor Churn Patterns:** Continue tracking customer tenure, monthly charges, contract types, and service usage to identify customers who may be more likely to leave.
 
-```
-.
-├── CustomerChurnAnalysis_FahimShahriarAhmed.ipynb   # Full analysis notebook
-├── data.csv                                         # Dataset
-└── README.md
-```
+These recommendations are based on exploratory patterns and should be validated through further analysis before implementation.
 
-## How to Run
+## Conclusion
 
-1. Clone the repository:
-```bash
-   git clone https://github.com/FahimShahriar202/<your-repo-name>.git
-   cd <your-repo-name>
-```
-2. Install the dependencies:
-```bash
-   pip install pandas numpy matplotlib seaborn jupyter
-```
-3. Open the notebook:
-```bash
-   jupyter notebook CustomerChurnAnalysis_FahimShahriarAhmed.ipynb
-```
-4. The notebook reads `/content/data.csv` (the Google Colab path). If running locally, change it to `data.csv`.
+This project demonstrates how Exploratory Data Analysis can help uncover meaningful patterns in customer behavior. By examining churn distribution and comparing customer attributes through statistical visualizations, the analysis identifies potential areas for improving customer retention.
 
-## Next Steps
+**The main takeaway:** Customers with shorter tenure and higher monthly charges appear to be an important group to investigate when developing customer retention strategies.
 
-- Build a predictive model (e.g. logistic regression or random forest) to flag customers at risk of churning.
-- Measure how much each feature contributes to churn.
+## Repository Contents
+
+- `CustomerChurnAnalysis_FahimShahriarAhmed.ipynb` — Jupyter Notebook containing the data exploration, cleaning, visualizations, findings, and business recommendations.
+
+## Future Improvements
+
+- Perform deeper statistical analysis to validate the observed relationships.
+- Apply feature engineering and preprocessing techniques.
+- Build machine learning models to predict customer churn.
+- Evaluate model performance using appropriate classification metrics.
